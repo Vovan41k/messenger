@@ -1,4 +1,16 @@
 const SideBar = () => {
+  const chats = [{
+    name:'Julia',
+    message:'Hello world!',
+    avatar:'https://user-images.githubusercontent.com/35243461/168796884-ee3aafb6-8083-48ec-9cfb-51b95eae08fe.jpg',
+    time:'12:44'
+},
+{
+  name:'Helen',
+  message:'Hi world!',
+  avatar:'https://user-images.githubusercontent.com/35243461/168796877-f6c8819a-5d6e-4b2a-bd56-04963639239b.jpg',
+  time:'15:56'
+}]
     return `
 <div class="col-md-4 col-12 card-stacked">
       <div class="card shadow-line mb-3 chat">
@@ -93,20 +105,9 @@ const SideBar = () => {
         </div>
         <div class="chat-user-panel">
           <div class="pb-3 d-flex flex-column navigation-mobile pagination-scrool chat-user-scroll">
-            ${ChatPreview({
-                name:'Julia',
-                message:'Hello world!',
-                avatar:'https://user-images.githubusercontent.com/35243461/168796884-ee3aafb6-8083-48ec-9cfb-51b95eae08fe.jpg',
-                time:'12:44'
-
-            })}
-            ${ChatPreview({
-                name:'Helen',
-                message:'Hi world!',
-                avatar:'https://user-images.githubusercontent.com/35243461/168796877-f6c8819a-5d6e-4b2a-bd56-04963639239b.jpg',
-                time:'15:56'
-
-            })}
+          ${chats.map((chat)=>{
+            return ChatPreview(chat)
+          }).join('')}
           </div>
         </div>
       </div>
